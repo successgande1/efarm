@@ -1,0 +1,63 @@
+{% load static %}
+
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href=" {% url 'accounts_dashboard' %} ">
+        <div class="sidebar-brand-icon rotate-n-90">
+            <img src="{% static 'admin/img/logos/logo2.png' %}" width="60" height="60" alt="Dashboard Logo">
+        </div>
+        <div class="sidebar-brand-text mx-3">Dashboard</div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+    
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+   {% if user.is_superuser %}
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Portal Mgt</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Create User:</h6>
+               
+                <a class="collapse-item" href="{% url 'create_portal_user' %} ">Add User</a>
+           
+                <a class="collapse-item" href="  ">View Users</a>
+                <a class="collapse-item" href=" {% url 'accounts_logout' %} ">Logout</a>
+            </div>
+        </div>
+    </li>
+    
+    <!-- Nav Item - Pages Collapse Menu -->
+    
+   {% elif user.profile.role == 'Super Admin' %}
+   <li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+        aria-expanded="true" aria-controls="collapseTwo">
+        <i class="fas fa-fw fa-cog"></i>
+        <span>Create Cashier</span>
+    </a>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+           
+           
+            <a class="collapse-item" href="{% url 'create_cashier_user' %} ">Add Cashier</a>
+       
+            <a class="collapse-item" href="{% url 'accounts_staff_list' %}">View</a>
+            
+        </div>
+    </div>
+</li>
+
+    {% endif %}
+</ul>

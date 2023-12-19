@@ -1,0 +1,159 @@
+
+<div class="row">
+{% if user.profile.role == 'Banker' or user.is_superuser or user.profile.role == 'Rector' %}
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            <span style="color:rgb(235, 112, 11); font-size:0.7rem; font-weight:700;">Number of Products:</span></div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+   
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i style="color:rgb(41, 122, 6); font-size:1rem; font-weight:700;">{{count_applicants}}</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Form SOld Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                            Product Order</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                           <span style="color:rgb(17, 6, 143); font-size:0.8rem;">{{recently_added_session}} Session</span> 
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i style="font-size:0.8rem; color:black; font-weight:650;">N{{total_amount_paid }} </i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-info shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                            Product(s) Sold
+                        </div>
+                        <div class="row no-gutters align-items-center">
+                            <div class="col-auto">
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">Coming Soon!</div>
+                            </div>
+                            <div class="col">
+                                <div class="progress progress-sm mr-2">
+                                    <div class="progress-bar bg-info" role="progressbar"
+                                         aria-valuemin="0"
+                                        aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pending Requests Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                            Amount Sold</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">Coming Soon!</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class=" fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% elif user.profile.role == 'Super Admin' %}
+
+<div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-primary shadow h-100 py-2">
+        <div class="card-body">
+            <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                        <span style="color:rgb(235, 112, 11); font-size:0.7rem; font-weight:700;">Number of Schools:</span></div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        <span style="color:rgb(17, 6, 143); font-size:0.8rem;"> {{recently_added_session}} Session</span>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <i class=" fa-2x text-gray-300"><span style="color:orange;">{{count_schools}}</span></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-success shadow h-100 py-2">
+        <div class="card-body">
+            <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                        Number of Departments</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                       <span style="color:rgb(17, 6, 143); font-size:0.8rem;">{{recently_added_session}} Session</span> 
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <i class=" fa-2x text-gray-300"><span style="color:blue;">{{count_departments}}</span></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Number of Programs Card Example -->
+<div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-info shadow h-100 py-2">
+        <div class="card-body">
+            <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                        Number of Programs
+                    </div>
+                    <div class="row no-gutters align-items-center">
+                        <div class="col-auto">
+                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                                <span style="color:rgb(17, 6, 143); font-size:0.8rem;">{{recently_added_session}} Session</span> 
+                            </div>
+                        </div>
+                        <div class="col">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <i class=" fa-2x text-gray-300"><span style="color:green;">{{count_programs}}</span></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+</div>
