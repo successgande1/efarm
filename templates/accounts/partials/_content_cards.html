@@ -1,6 +1,6 @@
 
 <div class="row">
-{% if user.profile.role == 'Banker' or user.is_superuser or user.profile.role == 'Rector' %}
+{% if user.profile.role == 'Super Admin' or user.is_superuser  %}
     <!-- Earnings (Monthly) Card Example -->
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-primary shadow h-100 py-2">
@@ -89,7 +89,7 @@
         </div>
     </div>
 
-{% elif user.profile.role == 'Super Admin' %}
+{% elif user.profile.role == 'Cashier' %}
 
 <div class="col-xl-3 col-md-6 mb-4">
     <div class="card border-left-primary shadow h-100 py-2">
@@ -97,9 +97,9 @@
             <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
                     <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                        <span style="color:rgb(235, 112, 11); font-size:0.7rem; font-weight:700;">Number of Schools:</span></div>
+                        <span style="color:rgb(235, 112, 11); font-size:0.7rem; font-weight:700;">Total Oder:</span></div>
                     <div class="h5 mb-0 font-weight-bold text-gray-800">
-                        <span style="color:rgb(17, 6, 143); font-size:0.8rem;"> {{recently_added_session}} Session</span>
+                        <span style="color:rgb(17, 6, 143); font-size:0.8rem;">  </span>
                     </div>
                 </div>
                 <div class="col-auto">
@@ -116,9 +116,9 @@
             <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
                     <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                        Number of Departments</div>
+                        Number of Orders Today</div>
                     <div class="h5 mb-0 font-weight-bold text-gray-800">
-                       <span style="color:rgb(17, 6, 143); font-size:0.8rem;">{{recently_added_session}} Session</span> 
+                       <span style="color:rgb(17, 6, 143); font-size:0.8rem;">{{recently_added_session}} </span> 
                     </div>
                 </div>
                 <div class="col-auto">
@@ -135,7 +135,91 @@
             <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
                     <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                        Number of Programs
+                        Number of Delivered Products
+                    </div>
+                    <div class="row no-gutters align-items-center">
+                        <div class="col-auto">
+                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                                <span style="color:rgb(17, 6, 143); font-size:0.8rem;">{{recently_added_session}} </span> 
+                            </div>
+                        </div>
+                        <div class="col">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <i class=" fa-2x text-gray-300"><span style="color:green;">{{count_programs}}</span></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-primary shadow h-100 py-2">
+        <div class="card-body">
+            <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                        <span style="color:rgb(235, 112, 11); font-size:0.7rem; font-weight:700;">Sold Today:</span></div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        <span style="color:rgb(17, 6, 143); font-size:0.8rem;">  </span>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <i class=" fa-2x text-gray-300"><span style="color:orange;"> </span></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% elif user.profile.role == 'Customer' %}
+<div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-primary shadow h-100 py-2">
+        <div class="card-body">
+            <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                        <span style="color:rgb(235, 112, 11); font-size:0.7rem; font-weight:700;">My Oders:</span></div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        <span style="color:rgb(17, 6, 143); font-size:0.8rem;">  </span>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <i class=" fa-2x text-gray-300"><span style="color:orange;">{{count_schools}}</span></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-success shadow h-100 py-2">
+        <div class="card-body">
+            <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                        Pending Order</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                       <span style="color:rgb(17, 6, 143); font-size:0.8rem;">{{recently_added_session}} Session</span> 
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <i class=" fa-2x text-gray-300"><span style="color:blue;">{{count_departments}}</span></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-info shadow h-100 py-2">
+        <div class="card-body">
+            <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                       Delivered Orders
                     </div>
                     <div class="row no-gutters align-items-center">
                         <div class="col-auto">

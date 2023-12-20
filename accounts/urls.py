@@ -12,5 +12,8 @@ urlpatterns = [
     path('disable_user/<int:pk>/', views.disable_user, name='accounts_disable_user'),
     path('enable_user/<int:pk>/', views.enable_user, name='accounts_enable_user'),
     path('delete/staff/<int:pk>/', StaffDeleteView.as_view(), name='delete_staff'),
+    path('account/admin/dashboard', views.admin_account_dashboard, name='admin_dashbord'),
+    path('account/cashier/dashboard', views.cashier_account_dashboard, name='cashier_dashbord'),
+    path('account/customer/dashboard', views.customer_account_dashboard, name='customer_dashbord'),
     path('logout/', auth_view.LogoutView.as_view(template_name='accounts/logout.html'), name='accounts_logout'),
 ]

@@ -32,11 +32,68 @@ def custom_server_not_found(request, exception=None):
 # Dashboard Index
 @login_required(login_url='accounts_login')
 def index(request):
+    logged_user = request.user
+    role = logged_user.profile.role
+    # Check if logged user account is disabled and redirect
+    try:
+        active_user = logged_user.profile.is_active
+        if not active_user:
+            messages.warning(request, f'{logged_user.profile.role} Account is Disabled.')
+            return redirect('accounts_login')
+    except Profile.DoesNotExist:
+        profile = None
+
+    # Get the user's profile
+    try:
+        profile = logged_user.profile
+    except Profile.DoesNotExist:
+        profile = None
+    # Check if profile exist and user role is Super Admin
+    if profile and profile.role == 'Super Admin':
+        messages.success(request, f'Welcome Back {role}!')
+        return redirect('admin_dashbord')
+    # Check if profile exist and user role is Cashier
+    elif profile and profile.role == 'Cashier':
+        messages.success(request, f'Welcome Back {role}!')
+        return redirect('cashier_dashbord')
+    # Check if profile exist and user role is Customer
+    elif profile and profile.role == 'Customer':
+        messages.success(request, f'Welcome Back {role}!')
+        return redirect('customer_dashbord')
+    else:
+        messages.warning(request, 'Something Went Wrong')
+        return redirect('accounts_login')
+
+
+# Admin Dashboard view
+def admin_account_dashboard(request):
+    logged_user = request.user
+    role = logged_user.profile.role
     context = {
-        'page_title': 'Dashboard Home',
+        'page_title': f'{role} Dashboard',
     }
     return render(request, 'accounts/index.html', context)
 
+
+# Cashier Dashboard view
+def cashier_account_dashboard(request):
+    logged_user = request.user
+    role = logged_user.profile.role
+    context = {
+        'page_title': f'{role} Dashboard',
+    }
+    return render(request, 'accounts/index.html', context)
+
+
+# Customer Dashboard view
+def customer_account_dashboard(request):
+    logged_user = request.user
+    role = logged_user.profile.role
+    context = {
+        'page_title': f'{role} Dashboard',
+    }
+    return render(request, 'accounts/index.html', context)
+    
 
 # Create Super Admin Portal User
 @login_required(login_url='accounts_login')

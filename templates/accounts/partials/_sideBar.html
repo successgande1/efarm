@@ -23,7 +23,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
             aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fas fa-user"></i>
             <span>Portal Mgt</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -44,7 +44,7 @@
    <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
         aria-expanded="true" aria-controls="collapseTwo">
-        <i class="fas fa-fw fa-cog"></i>
+        <i class="fas fa-user"></i>
         <span>Create Cashier</span>
     </a>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -57,7 +57,85 @@
             
         </div>
     </div>
-</li>
+   </li>
+
+   <li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Products"
+        aria-expanded="true" aria-controls="collapseTwo">
+        <i class="fas fa-list fa-folder"></i>
+        <span>Product Management</span>
+    </a>
+    <div id="Products" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+           
+           
+            <a class="collapse-item" href=" ">Add Product</a>
+       
+            <a class="collapse-item" href="">View Products</a>
+            
+        </div>
+    </div>
+   </li>
+
+   <li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#OrderMgt"
+        aria-expanded="true" aria-controls="collapseTwo">
+        <i class="fas fa-fw fa-table"></i>
+        <span>Order Management</span>
+    </a>
+    <div id="OrderMgt" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+           
+           
+            <a class="collapse-item" href=" ">View Pending</a>
+       
+            <a class="collapse-item" href="">View Paid</a>
+            
+        </div>
+    </div>
+   </li>
+
+    {% endif %}
+
+    {% if user.profile.role == 'Cashier' %}
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Order Management</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+               
+               
+                <a class="collapse-item" href=" ">View Pending</a>
+           
+                <a class="collapse-item" href="">View Paid</a>
+                
+            </div>
+        </div>
+    </li>
+    {% endif %}
+
+    {% if user.profile.role == 'Customer' %}
+   
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Order Management</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+               
+               
+                <a class="collapse-item" href=" ">View Pending</a>
+           
+                <a class="collapse-item" href="">View Paid</a>
+                
+            </div>
+        </div>
+    </li>
 
     {% endif %}
 </ul>

@@ -39,11 +39,11 @@
                 <!-- Content Card Row -->
                     {% include 'accounts/partials/_content_cards.html' %}
                 <!-- End Content Card Row -->
-
+                {% if user.profile.role == 'Super Admin' %}
                 <!-- Area and Pie Chart -->
                     {% include 'accounts/partials/_areaChart.html' %}
                 <!-- End Area and Pie Chart -->
-
+                {% endif %}
 
 
             </div>
