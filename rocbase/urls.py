@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('pages.urls')),
     path('', include('accounts.urls')),
+    path('', include('store.urls')),
     path('404/', custom_page_not_found, name='custom_404'),
     path('403/', custom_page_forbidden, name='custom_403'),
     path('500/', custom_server_not_found, name='custom_500'),

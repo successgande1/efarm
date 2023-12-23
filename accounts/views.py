@@ -49,7 +49,7 @@ def index(request):
     except Profile.DoesNotExist:
         profile = None
     # Check if profile exist and user role is Super Admin
-    if profile and profile.role == 'Super Admin':
+    if profile and profile.role == 'Super Admin' or profile and logged_user.is_superuser:
         messages.success(request, f'Welcome Back {role}!')
         return redirect('admin_dashbord')
     # Check if profile exist and user role is Cashier

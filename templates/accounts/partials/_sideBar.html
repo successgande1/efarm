@@ -32,7 +32,7 @@
                
                 <a class="collapse-item" href="{% url 'create_portal_user' %} ">Add User</a>
            
-                <a class="collapse-item" href="  ">View Users</a>
+                <a class="collapse-item" href=" {% url 'accounts_staff_list' %} ">View Users</a>
                 <a class="collapse-item" href=" {% url 'accounts_logout' %} ">Logout</a>
             </div>
         </div>
@@ -69,9 +69,9 @@
         <div class="bg-white py-2 collapse-inner rounded">
            
            
-            <a class="collapse-item" href=" ">Add Product</a>
+            <a class="collapse-item" href="{% url 'add_product' %} ">Add Product</a>
        
-            <a class="collapse-item" href="">View Products</a>
+            <a class="collapse-item" href=" {% url 'product_list' %} ">View Products</a>
             
         </div>
     </div>
